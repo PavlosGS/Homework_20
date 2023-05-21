@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .enlarge-image {
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .enlarge-image:hover {
+      transform: scale(1.1);
+    }
+
+    .enlarge-image:focus {
+      outline: none;
+    }
+
+    .modal-dialog {
+      max-width: 90vw;
+      margin: auto;
+    }
+
+    .modal-content {
+      background-color: #f8f9fa; /* Set your desired background color here */
+    }
+
+    .modal-caption {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .modal-close:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Image Gallery</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="image-container">
+          <img src="path/to/image1.jpg" alt="Image 1" class="img-fluid enlarge-image" data-toggle="modal" data-target="#imageModal" data-caption="Caption 1">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="image-container">
+          <img src="path/to/image2.jpg" alt="Image 2" class="img-fluid enlarge-image" data-toggle="modal" data-target="#imageModal" data-caption="Caption 2">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="image-container">
+          <img src="path/to/image3.jpg" alt="Image 3" class="img-fluid enlarge-image" data-toggle="modal" data-target="#imageModal" data-caption="Caption 3">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <img src="" class="img-fluid" alt="">
+        </div>
+        <div class="modal-caption"></div>
+        <div class="modal-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var $modal = $('#imageModal');
+      var $modalImage = $modal.find('.modal-body img');
+      var $modalCaption = $modal.find('.modal-caption');
+
+      $('.enlarge-image').click(function() {
+        var image = $(this);
+        var caption = image.data('caption');
+
+        $modalImage.attr('src', image.attr('src'));
+        $modalCaption.text(caption);
+        $modal.modal('show');
+      });
+    });
+  </script>
+</body>
+</html>
+
+$(document).ready(function() {
+  var $modal = $('#imageModal');
+  var $modalImage = $modal.find('.modal-body img');
+  var $modalCaption = $modal.find('.modal-caption');
+
+  $('.enlarge-image').click(function() {
+    var image = $(this);
+    var caption = image.data('caption');
+
+    $modalImage.attr('src', image.attr('src'));
+    $modalCaption.text(caption);
+    $modal.modal('show');
+  });
+});
+
