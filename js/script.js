@@ -1,19 +1,19 @@
 
 $( document ).ready(function() {
     //var div = $(".overlap");
-    if (window.matchMedia('(max-width: 650px)').matches) {
+    if (window.matchMedia('(max-width: 992px)').matches) {
         $(".overlap").css("margin", "auto");    
     }
-    else if (window.matchMedia('(min-width: 650px)').matches) {
+    else if (window.matchMedia('(min-width: 992px)').matches) {
       $(".overlap").animate({marginLeft:'10%'}, 1200);   
     }
   });
 
   $( window ).on("resize", function() {
-    if (window.matchMedia('(max-width: 650px)').matches) {
+    if (window.matchMedia('(max-width: 992px)').matches) {
       $(".overlap").css("margin", "auto");    
     }
-    else if (window.matchMedia('(min-width: 650px)').matches) {
+    else if (window.matchMedia('(min-width: 992px)').matches) {
       $(".overlap").css("margin-left","10%");   
     } 
   });
