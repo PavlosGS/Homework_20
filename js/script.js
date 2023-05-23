@@ -26,6 +26,21 @@ $(".toggle").on("click", function(){
     $(".dropDown").css("display", "none");
   });
 
+  // Menu toggle animation
+  
+  const menuBtn = document.querySelector('.toggle');
+  let menuOpen = false;
+  menuBtn.addEventListener('click',() => {
+    if (!menuOpen) {
+      menuBtn.classList.add('open');
+      menuOpen = true;
+    }
+    else {
+      menuBtn.classList.remove('open');
+      menuOpen = false;
+    }
+  });
+
   
   // Modal galery script
 
